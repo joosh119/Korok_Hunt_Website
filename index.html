@@ -1,8 +1,126 @@
-<html>
-    <head> <b>Korok Hunt</b> </head>
-    <body>
-        Find Koroks littered across RPI!
-        <img src="korok_hunt_logo.svg" alt="Korok Hunt Logo">
+<!DOCTYPE html>
 
-    </body>
+<html lang="en">
+<head>
+    <title> RPI Korok Hunt </title>
+
+    
+    <link rel="stylesheet" href="css/main_style.css">
+</head>
+
+
+<body id="body" style="background-color: burlywood;">
+    
+        <iframe id="map_frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1423.668184578312!2d-73.68017783242718!3d42.729766823837814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89de0f9eebfa097d%3A0xa5592b13db1f5302!2sRensselaer%20Polytechnic%20Institute!5e0!3m2!1sen!2sus!4v1703266728204!5m2!1sen!2sus" 
+            style="border: 10px solid chocolate;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="center">
+        </iframe> 
+    
+        <img src="images/korok_hunt_logo.svg" alt="Korok Hunt Logo"  style="position: absolute; top: 0; right: 0; vertical-align: top;" width=15%>
+
+
+        <p style="font-family: Hylia Serif; color: white; font-size: 24px" class="center">
+            <u>What is this?</u> <br>
+            Find the hidden Koroks hidden all over campus! Each Korok has a QR code to scan, which will increment your score. <br>
+            Compete against your fellow students to find the most Koroks!<br>
+            The first place player by ??? will win ???. Wow!<br><br>
+
+            <u>CHEATING NOTICE</u><br>
+            Don't ruin the fun for everyone else. <br>
+            Removing or moving Koroks from their original location, as well as scanning Koroks that have been removed will result in disqualification. <br>
+            I spent a lot of time putting this together, don't be mean.
+        </p>
+
+
+        <!-- KOROK FOUND POPUP -->
+        <div class="popup_align l_popup" id="kf_popup" style="opacity: 0; visibility: hidden;">
+            
+            <div class="center l_popup_div popup_text" >
+                <br><br><br><br>
+                <img id="korok_img" src="images/korok_1.png" alt="Yahaha! You found me!" class="center" style="height: 90cqi;">
+                
+                <p class="s_text center">
+                Yahaha! You found me!<br>
+                You have currently found <count>-1</count> Koroks!<br>
+                </p>
+
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <button class="button popup_text"> 
+                    <p class="button_text"> Awesome! </p> 
+                </button>
+            </div>
+        </div>
+
+        <!-- UNKNOWN KOROK POPUP -->
+        <div class="popup_align l_popup" id="uk_popup" style="opacity: 0; visibility: hidden;">
+            
+            <div class="center l_popup_div popup_text" >
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+                <img id="korok_img" src="images/unknown.svg" alt="Yahaha! You found me!" class="center" style=" height: 90cqi;">
+                
+                <p class="s_text center">
+                    This is not a valid Korok.<br>
+                    Scan a valid QR code to find Koroks!<br>
+                </p>
+
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <button class="button popup_text"> 
+                    <p class="button_text"> Ok </p> 
+                </button>
+            </div>
+        </div>
+
+        <!-- USERNAME POPUP -->
+        <div class="popup_align s_popup" id="u_popup" style="opacity: 0; visibility: hidden; z-index: 3;">
+            
+            <div class="center s_popup_div popup_text" >
+                <br><br><br><br>
+                <p class="s_text">
+                    Input your email to save your progress under.<br>
+                    It will only be used to contact you if you win.<br>
+                </p>
+                <inv id="invalid_name" style="font-family: Hylia Serif; font-size: 2.5em; color: rgb(107, 0, 0); visibility: hidden;">
+                    Try a different email
+                </inv>
+                <br>
+                <textarea rows="1" cols="28" maxlength="32" id="name_input" class="area_text" style="font-family: Hylia Serif; outline: none; border: none; text-align: center; resize: none; overflow: auto; white-space: nowrap; overflow-y: hidden;"></textarea> <br><br>
+                <e class="s_text">
+                    Use this email if you ever need to sign back in
+                </e>
+                <br><br><br>
+                <button class="button popup_text">
+                    <p class="button_text"> Set Email </p>
+                </button>
+            </div>
+        </div>
+
+        <!-- INFO POPUP -->
+        <div class="popup_align l_popup" id="i_popup" style="opacity: 0; visibility: hidden; z-index: 4;">
+            
+            <div class="center l_popup_div popup_text" >
+                <br><br><br>
+
+                <p class="title_text center">
+                    Introducing: <br> The RPI Korok Hunt! <br>
+                </p>
+
+                <p class="p_text">
+                    The RPI Korok Hunt is a campus wide Korok hunting event! <br>
+                    Search across RPI for hidden Koroks! Scan their QR codes in order to increment your score.
+                    and compete against other RPI students to find the most! <br><br>
+                    The first place player by ??? will win ??? <br><br>
+
+                    You don't actually have to be an RPI student, I guess. I can't really check that.
+                </p>
+
+                <br>
+                <button class="button popup_text center">
+                    <p class="button_text"> Let's get started! </p>
+                </button>
+            </div>
+        </div>
+    
+
+        <script type="text/javascript" src="js/main.js"></script>
+</body>
 </html>
+
