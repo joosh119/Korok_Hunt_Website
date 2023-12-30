@@ -128,9 +128,12 @@ async function request_username(){
 //KOROK MANAGEMENT
 //check if korok with the id exists
 async function check_korok(){
-    var url_params = new URLSearchParams(window.location.search);
+    const url = new URL(window.location);
+    console.log(url.toString());
+    var url_params = new URLSearchParams(url.search);
+    console.log(url_params);
     var korok_id = url_params.get("korok");
-    console.log("id: " + korok_id);
+    console.log("Korok Id: " + korok_id);
     
     //check if the given korok id is valid
     if(id != "")
