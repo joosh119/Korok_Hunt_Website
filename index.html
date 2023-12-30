@@ -6,6 +6,7 @@
 
     
     <link rel="stylesheet" href="css/main_style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 
@@ -13,22 +14,25 @@
     
         <iframe id="map_frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1423.668184578312!2d-73.68017783242718!3d42.729766823837814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89de0f9eebfa097d%3A0xa5592b13db1f5302!2sRensselaer%20Polytechnic%20Institute!5e0!3m2!1sen!2sus!4v1703266728204!5m2!1sen!2sus" 
             style="border: 10px solid chocolate;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="center">
-        </iframe> 
+        </iframe>
     
-        <img src="images/korok_hunt_logo.svg" alt="Korok Hunt Logo"  style="position: absolute; top: 0; right: 0; vertical-align: top;" width=15%>
+        <img src="images/korok_hunt_logo.png" alt="Korok Hunt Logo"  style="position: absolute; top: 0; right: 0; vertical-align: top;" width=15%>
 
 
-        <p style="font-family: Hylia Serif; color: white; font-size: 24px" class="center">
-            <u>What is this?</u> <br>
+        <br>
+        <div class="t_paragraph"><u>WHAT IS THIS?</u></div> <br>
+        <div class="b_paragraph">
             Find the hidden Koroks hidden all over campus! Each Korok has a QR code to scan, which will increment your score. <br>
-            Compete against your fellow students to find the most Koroks!<br>
+            Compete against your fellow students to find the most Koroks!<br><br>
             The first place player by ??? will win ???. Wow!<br><br>
-
-            <u>CHEATING NOTICE</u><br>
+        </div>
+        <br>
+        <div class="t_paragraph"><u>CHEATING NOTICE</u></div> <br>
+        <div class="b_paragraph">
             Don't ruin the fun for everyone else. <br>
             Removing or moving Koroks from their original location, as well as scanning Koroks that have been removed will result in disqualification. <br>
-            I spent a lot of time putting this together, don't be mean.
-        </p>
+            I spent a lot of time putting this together.
+        </div>
 
 
         <!-- KOROK FOUND POPUP -->
@@ -36,16 +40,16 @@
             
             <div class="center l_popup_div popup_text" >
                 <br><br><br><br>
-                <img id="korok_img" src="images/korok_1.png" alt="Yahaha! You found me!" class="center" style="height: 90cqi;">
+                <img id="korok_img" alt="Yahaha! You found me!" class="center" style="height: 90cqi;">
                 
-                <p class="s_text center">
-                Yahaha! You found me!<br>
-                You have currently found <count>-1</count> Koroks!<br>
+                <p class="f_text center">
+                <found>Yahaha! You found me!</found><br><br>
+                You have currently found<br><count>-1 Koroks</count>!<br>
                 </p>
 
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br>
                 <button class="button popup_text"> 
-                    <p class="button_text"> Awesome! </p> 
+                    <p class="button_text"> <b_found>Awesome!<b_found> </p> 
                 </button>
             </div>
         </div>
@@ -57,12 +61,12 @@
                 <br><br><br><br><br><br><br><br><br><br><br><br>
                 <img id="korok_img" src="images/unknown.svg" alt="Yahaha! You found me!" class="center" style=" height: 90cqi;">
                 
-                <p class="s_text center">
-                    This is not a valid Korok.<br>
+                <p class="f_text center">
+                    This is not a valid Korok.<br><br>
                     Scan a valid QR code to find Koroks!<br>
                 </p>
 
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                
                 <button class="button popup_text"> 
                     <p class="button_text"> Ok </p> 
                 </button>

@@ -115,6 +115,12 @@ iframe {
     color: whitesmoke;
 }
 
+.f_text {
+    font-family: Hylia Serif;
+    font-size: 5em;
+    color: whitesmoke;
+}
+
 .area_text {
     font-family: Hylia Serif;
     font-size: 4.5em;
@@ -127,4 +133,27 @@ iframe {
     font-size: 7.5em; 
     margin-top: auto; 
     margin-bottom: auto;
+}
+
+
+
+.b_paragraph {
+    font-family: Hylia Serif;
+    font-size: 24px;
+    color: rgb(122, 81, 0);
+
+    text-align: left;
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 92%
+}
+
+.t_paragraph {
+    font-family: Hylia Serif;
+    font-size: 32px;
+    color: rgb(82, 58, 11);
+
+    text-align: center;
+    width: 100%;
 }

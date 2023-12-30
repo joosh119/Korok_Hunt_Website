@@ -1,7 +1,4 @@
-const map_frame = document.getElementById("map_frame")
-
 const korok_count = 4;
-const korok_img = 
 
 
 
@@ -17,21 +14,20 @@ document.addEventListener('DOMContentLoaded', _ => {
 
 //Start
 window.onload = function initialize(){
-    getLocation()
+    //getLocation()
 
-    var korok_num = Math.floor(korok_count*Math.random()) + 1;
-    check_korok(korok_num);
+    //check_korok();
 }
 
 
 
 //LOCATION MANAGEMENT
 function getLocation() {
-    //if (navigator.geolocation) {
-    //    navigator.geolocation.getCurrentPosition(showPosition);
-    //} else {
-    //    text.innerHTML = "Geolocation is not supported by this browser.";
-    //}
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        text.innerHTML = "Geolocation is not supported by this browser.";
+    }
 }
 
 function showPosition(position) {
@@ -77,7 +73,7 @@ async function getUserName(){
 }
 
 
-function getCookie(c_name) {
+function getCookie(c_name){
     if (document.cookie.length > 0) {
         c_start = document.cookie.indexOf(c_name + "=");
         if (c_start != -1) {
@@ -107,7 +103,6 @@ async function request_username(){
             //check validity of username
             //upload username to server
 
-
             button_pressed = true;
         }
         else{
@@ -132,14 +127,19 @@ async function request_username(){
 
 //KOROK MANAGEMENT
 //check if korok with the id exists
-async function check_korok(korok_id){
+async function check_korok(){
+    var url_params = new URLSearchParams(window.location.search);
+    var korok_id = url_params.get("korok");
+    console.log("id: " + korok_id);
+    
     //check if the given korok id is valid
-    if(true){
-        found_korok(korok_id);
-    }
-    else{
-        unknown_korok(korok_id);
-    }
+    if(id != "")
+        if(true){
+            found_korok(korok_id);
+        }
+        else{
+            unknown_korok(korok_id);
+        }
 }
 
 //the korok found from the url given
@@ -150,26 +150,21 @@ async function found_korok(korok_id){
     //get username
     var username = await getUserName();
 
-    //retrieve the korok number
-    var korok_num = korok_id;
-    //retrieve the current korok count of the user
-    var prev_korok_count = 0;
-    //increment korok score and recieve new korok count
-    var new_korok_count = 1;
+    //SERVER REQUESTS
+        //retrieve the korok number
+        var korok_num = Math.floor(korok_count*Math.random()) + 1;;
+        //retrieve the current korok count of the user
+        var prev_korok_count = 10;
+        //increment korok score and recieve new korok count
+        var new_korok_count = 11;
 
     console.log("Retrieved Info: Korok num: " + korok_num + " Prev Count: " + prev_korok_count + " New Count: " + new_korok_count);
 
     //if the previous count is equal to the new, the user already found this korok
-    if(prev_korok_count == new_korok_count){
-        console.log("You've already found this Korok!");
-    }
-    else{
-        console.log("Yahaha! You found a Korok!");
-    }
-    console.log("You've currently found " + new_korok_count + " Koroks!");
+    var new_korok = (prev_korok_count!=new_korok_count);
 
     //Display ui
-    korok_found_popup(korok_num, new_korok_count)
+    korok_found_popup(korok_num, new_korok_count, new_korok)
 }
 
 //korok with unknown id
@@ -183,7 +178,7 @@ function unknown_korok(korok_id){
 
 //UI
 //loads the korok popup with the given korok number
-function korok_found_popup(korok_num, korok_count){
+function korok_found_popup(korok_num, korok_count, new_korok){
     var kf_popup = document.getElementById("kf_popup");
 
     open_popup(kf_popup);
@@ -194,8 +189,17 @@ function korok_found_popup(korok_num, korok_count){
     //Load correct Korok image
     document.getElementById('korok_img').src = "images/korok_" + korok_num + ".png";
 
+    //Display if this korok has already been found
+    if(!new_korok){
+        kf_popup.getElementsByTagName("found")[0].textContent = "You've already found this korok";
+        kf_popup.getElementsByTagName("b_found")[0].textContent = "Ok";
+    }
+
     //Set korok count
-    kf_popup.getElementsByTagName('count')[0].textContent = korok_count;
+    var count_display = korok_count + " Korok";
+    if(korok_count > 1)
+        count_display += "s";
+    kf_popup.getElementsByTagName('count')[0].textContent = count_display;
 
 
     return kf_popup;
