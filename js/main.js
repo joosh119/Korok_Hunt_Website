@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', _ => {
 window.onload = function initialize(){
     //getLocation()
 
-    //check_korok();
+    check_korok();
 }
 
 
