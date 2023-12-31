@@ -131,11 +131,12 @@ async function check_korok(){
     const url = new URL(window.location);
     console.log(url.toString());
     var url_params = new URLSearchParams(url.search);
-    var korok_id = url_params.get("korok").toString();
+    var korok_id = url_params.get("korok");
+    
     console.log("Korok Id: " + korok_id);
     
     //check if the given korok id is valid
-    if(id != "")
+    if(korok_id != null)
         if(true){
             found_korok(korok_id);
         }
