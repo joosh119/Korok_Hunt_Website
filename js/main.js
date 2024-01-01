@@ -1,5 +1,9 @@
-const korok_count = 4;
+import { query_username, set_korok_location} from "./link";
 
+const korok_count = 4;
+var saved_korok_id;
+
+var saved_admin_password;
 
 
 //Before reloading
@@ -14,26 +18,9 @@ document.addEventListener('DOMContentLoaded', _ => {
 
 //Start
 window.onload = function initialize(){
-    //getLocation()
-
+    korok_found_popup(1, 1, 1, 999);
+    
     check_korok();
-}
-
-
-
-//LOCATION MANAGEMENT
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        text.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    var lat = position.coords.latitude
-    var long = position.coords.longitude
-    //text.innerHTML = "Lat: " + lat + " Long: " + long;
 }
 
 
@@ -65,7 +52,7 @@ async function getUserName(){
         username = await request_username();
     }
     else{
-        console.log(getCookie("Username:" + username));
+        console.log("Username:" + username);
     }
         
 
@@ -99,10 +86,7 @@ async function request_username(){
         username =  textarea.value;
 
         //if username was invalid
-        if(username != ""){
-            //check validity of username
-            //upload username to server
-
+        if(username != ""  &&  username.includes('@')  &&  query_username(username)){
             button_pressed = true;
         }
         else{
@@ -126,6 +110,7 @@ async function request_username(){
 
 
 //KOROK MANAGEMENT
+//SERVER----------------------------
 //check if korok with the id exists
 async function check_korok(){
     const url = new URL(window.location);
@@ -135,24 +120,28 @@ async function check_korok(){
     
     console.log("Korok Id: " + korok_id);
     
-    //check if the given korok id is valid
-    if(korok_id != null)
+    //Check if there was a korok_id to check
+    if(korok_id != null){
+        saved_korok_id = korok_id;
+        
+
+        //check if there is a korok number with this ID
         if(true){
             found_korok(korok_id);
         }
         else{
             unknown_korok(korok_id);
         }
+    }
 }
 
+//SERVER----------------------------
 //the korok found from the url given
 async function found_korok(korok_id){
     console.log("Found Korok Id: " + korok_id);
 
-
-    //get username
     var username = await getUserName();
-
+    
     //SERVER REQUESTS
         //retrieve the korok number
         var korok_num = Math.floor(korok_count*Math.random()) + 1;;
@@ -160,6 +149,8 @@ async function found_korok(korok_id){
         var prev_korok_count = 10;
         //increment korok score and recieve new korok count
         var new_korok_count = 11;
+        //new ranking of player
+        var new_ranking = 1;
 
     console.log("Retrieved Info: Korok num: " + korok_num + " Prev Count: " + prev_korok_count + " New Count: " + new_korok_count);
 
@@ -179,9 +170,34 @@ function unknown_korok(korok_id){
 
 
 
+//ADMIN KOROK MANAGEMENT
+//Checks the admin password, checks the location, and calls method that changes the korok position
+function admin_access(){
+    var admin_password = prompt("Administrator Password:");
+    if(admin_password == null)
+        return;
+
+    saved_admin_password = admin_password;
+
+    //check location
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(set_position);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+
+//set position of the korok
+function set_position(position){
+    //set position of korok, sending the admin password
+    set_korok_location(position, saved_admin_password);
+}
+
+
+
 //UI
 //loads the korok popup with the given korok number
-function korok_found_popup(korok_num, korok_count, new_korok){
+function korok_found_popup(korok_num, korok_count, new_korok, ranking){
     var kf_popup = document.getElementById("kf_popup");
 
     open_popup(kf_popup);
@@ -203,6 +219,10 @@ function korok_found_popup(korok_num, korok_count, new_korok){
     if(korok_count > 1)
         count_display += "s";
     kf_popup.getElementsByTagName('count')[0].textContent = count_display;
+
+    //Set ranking
+    kf_popup.getElementsByTagName('rank')[0].textContent = ranking;
+
 
 
     return kf_popup;

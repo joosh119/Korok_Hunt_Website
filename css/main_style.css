@@ -157,3 +157,15 @@ iframe {
     text-align: center;
     width: 100%;
 }
+
+.bottom_paragraph {
+    font-family: Hylia Serif;
+    font-size: 18px;
+    color: rgb(82, 58, 11);
+
+    text-align: center;
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}

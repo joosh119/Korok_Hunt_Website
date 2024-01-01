@@ -11,7 +11,7 @@
 
 
 <body id="body" style="background-color: burlywood;">
-    
+        <!-- MAIN PAGE -->
         <iframe id="map_frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1423.668184578312!2d-73.68017783242718!3d42.729766823837814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89de0f9eebfa097d%3A0xa5592b13db1f5302!2sRensselaer%20Polytechnic%20Institute!5e0!3m2!1sen!2sus!4v1703266728204!5m2!1sen!2sus" 
             style="border: 10px solid chocolate;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="center">
         </iframe>
@@ -24,7 +24,7 @@
         <div class="b_paragraph">
             Find the hidden Koroks hidden all over campus! Each Korok has a QR code to scan, which will increment your score. <br>
             Compete against your fellow students to find the most Koroks!<br><br>
-            The first place player by ??? will win ???. Wow!<br><br>
+            The first place player by <u>April 20, 2024</u> will win <u>???</u>! Wow!<br><br>
         </div>
         <br>
         <div class="t_paragraph"><u>CHEATING NOTICE</u></div> <br>
@@ -32,6 +32,10 @@
             Don't ruin the fun for everyone else. <br>
             Removing or moving Koroks from their original location, as well as scanning Koroks that have been removed will result in disqualification. <br>
             I spent a lot of time putting this together.
+        </div>
+        <br><br><br>
+        <div class="bottom_paragraph">
+            Made by an RPI student, for RPI students
         </div>
 
 
@@ -45,11 +49,16 @@
                 <p class="f_text center">
                 <found>Yahaha! You found me!</found><br><br>
                 You have currently found<br><count>-1 Koroks</count>!<br>
+                Your current ranking: <rank>-1</rank>
                 </p>
 
-                <br><br><br><br><br><br>
-                <button class="button popup_text"> 
+                <br>
+                <button class="button popup_text">
                     <p class="button_text"> <b_found>Awesome!<b_found> </p> 
+                </button>
+                <br><br><br><br><br><br>
+                <button onclick="admin_access()">
+                    admin
                 </button>
             </div>
         </div>
@@ -111,7 +120,7 @@
                     The RPI Korok Hunt is a campus wide Korok hunting event! <br>
                     Search across RPI for hidden Koroks! Scan their QR codes in order to increment your score.
                     and compete against other RPI students to find the most! <br><br>
-                    The first place player by ??? will win ??? <br><br>
+                    The first place player by <u>April 20, 2024</u> will win <u>???</u>!<br><br>
 
                     You don't actually have to be an RPI student, I guess. I can't really check that.
                 </p>
@@ -124,7 +133,7 @@
         </div>
     
 
-        <script type="text/javascript" src="js/main.js"></script>
+        <script type="module" src="js/main.js"></script>
 </body>
 </html>
 
