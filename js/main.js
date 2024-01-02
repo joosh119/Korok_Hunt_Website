@@ -1,10 +1,10 @@
-import { Amplify } from 'aws-amplify';
+import { Amplify } from '../node_modules/aws-amplify/dist/esm/index.d.ts';
 import config from '../aws-exports';
 
 Amplify.configure(config);
 
 
-import { API } from "aws-amplify";
+import { API } from "../node_modules/aws-amplify/dist/esm/index.d.ts";
 import { listKoroks, getKorok } from '../src/graphql/queries'
 
 
