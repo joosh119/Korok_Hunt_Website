@@ -4,7 +4,7 @@ import config from '../aws-exports';
 Amplify.configure(config);
 
 
-import { generateClient } from 'aws-amplify/api';
+import { generateClient } from '../node_modules/aws-amplify/dist/esm/api/index';
 import { createUser } from '../src/graphql/mutations'
 
 const client = generateClient();
