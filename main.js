@@ -1,13 +1,13 @@
 //import { Amplify } from 'aws-amplify';
-import { Amplify } from './node_modules/aws-amplify/dist/esm/index';
-import config from './aws-exports';
+import { Amplify } from './node_modules/aws-amplify/dist/esm/index.mjs';
+import config from './aws-exports.js';
 
 Amplify.configure(config);
 
 
 //import { generateClient } from 'aws-amplify/api';
-import { generateClient } from './node_modules/aws-amplify/dist/esm/api/index';
-import { createUser } from './src/graphql/mutations'
+import { generateClient } from './node_modules/aws-amplify/dist/esm/api/index.mjs';
+import { createUser } from './src/graphql/mutations.js'
 
 const client = generateClient();
 
