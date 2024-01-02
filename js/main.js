@@ -1,11 +1,14 @@
-import { Amplify } from 'aws-amplify';
+import { Amplify } from '../node_modules/aws-amplify/dist/esm/index';
 import config from '../aws-exports';
 
 Amplify.configure(config);
 
 
-import { API } from "aws-amplify";
-import { listKoroks, getKorok } from '../src/graphql/queries';
+import { generateClient } from 'aws-amplify/api';
+import { createUser } from '../src/graphql/mutations'
+
+const client = generateClient();
+
 
 
 
@@ -132,7 +135,6 @@ async function check_korok(){
     if(korok_id != null){
         saved_korok_id = korok_id;
         
-
         //check if there is a korok number with this ID
         if(query_korok(korok_id)){
             found_korok(korok_id);
@@ -361,27 +363,34 @@ function fadeOut( elem, ms )
 export async function query_username(username){
     console.log("Checking username with server: " + username);
 
+    const newUser = await client.graphql({
+        query: createUser,
+        variables: {
+            input: {
+            "email": username,
+            "collected_koroks":  []
+        }
+        }
+    });
+
+
     return true;
 }
 
-
 //Check if korok exists. Returns korok number
 export async function query_korok(korok_id){
-    //const korok = ;
-    const allKoroks = await API.graphql<GraphQLQuery<ListKoroksQuery>>({
-        query: queries.listKoroks
-    });
-    console.log(allKoroks);
+    console.log("Finding Korok");
 
-    const oneKorok = await API.graphql<GraphQLQuery<GetKorokQuery>>({
-        query: queries.getKorok,
+    const oneKorok = await client.graphql({
+        query: getKorok,
         variables: { id: korok_id }
     });
     console.log(oneKorok);
 
-    
-    return true;
+    console.log("Found korok: " + oneKorok);
+    return oneKorok;
 }
+
 
 //Increment score of player returns new korok count as well as the user's ranking
 export async function increment_score(username, korok_id){
