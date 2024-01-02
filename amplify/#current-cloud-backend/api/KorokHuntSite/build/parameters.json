@@ -1,0 +1,19 @@
+{
+    "AppSyncApiName": "KorokHuntSite",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authKorokHuntSite",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "S3DeploymentBucket": "amplify-amplifydae6587271844-staging-233700-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/1f7a1f71e754566c520226a1ec72c516d5562be0"
+}

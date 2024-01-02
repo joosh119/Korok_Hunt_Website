@@ -1,0 +1,294 @@
+type User @aws_iam @aws_api_key {
+  id: ID!
+  email: String!
+  collected_koroks: [Boolean!]!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type Korok @aws_iam @aws_cognito_user_pools @aws_api_key {
+  id: ID!
+  korok_num: Int!
+  pos_lat: Float
+  pos_long: Float
+  scan_history: [String]
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelSubscriptionStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  in: [String]
+  notIn: [String]
+}
+
+input ModelSubscriptionIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  in: [Int]
+  notIn: [Int]
+}
+
+input ModelSubscriptionFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  in: [Float]
+  notIn: [Float]
+}
+
+input ModelSubscriptionBooleanInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelSubscriptionIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  in: [ID]
+  notIn: [ID]
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelUserConnection @aws_api_key @aws_iam {
+  items: [User]!
+  nextToken: String
+}
+
+input ModelUserFilterInput {
+  id: ModelIDInput
+  email: ModelStringInput
+  collected_koroks: ModelBooleanInput
+  and: [ModelUserFilterInput]
+  or: [ModelUserFilterInput]
+  not: ModelUserFilterInput
+}
+
+type Query {
+  getUser(id: ID!): User @aws_api_key @aws_iam
+  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection @aws_api_key @aws_iam
+  getKorok(id: ID!): Korok @aws_api_key @aws_iam @aws_cognito_user_pools
+  listKoroks(filter: ModelKorokFilterInput, limit: Int, nextToken: String): ModelKorokConnection @aws_api_key @aws_iam @aws_cognito_user_pools
+}
+
+input ModelUserConditionInput {
+  email: ModelStringInput
+  collected_koroks: ModelBooleanInput
+  and: [ModelUserConditionInput]
+  or: [ModelUserConditionInput]
+  not: ModelUserConditionInput
+}
+
+input CreateUserInput {
+  id: ID
+  email: String!
+  collected_koroks: [Boolean!]!
+}
+
+input UpdateUserInput {
+  id: ID!
+  email: String
+  collected_koroks: [Boolean!]
+}
+
+input DeleteUserInput {
+  id: ID!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
+  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
+  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
+  createKorok(input: CreateKorokInput!, condition: ModelKorokConditionInput): Korok @aws_api_key @aws_iam
+  updateKorok(input: UpdateKorokInput!, condition: ModelKorokConditionInput): Korok @aws_api_key @aws_iam
+  deleteKorok(input: DeleteKorokInput!, condition: ModelKorokConditionInput): Korok @aws_api_key @aws_iam
+}
+
+input ModelSubscriptionUserFilterInput {
+  id: ModelSubscriptionIDInput
+  email: ModelSubscriptionStringInput
+  collected_koroks: ModelSubscriptionBooleanInput
+  and: [ModelSubscriptionUserFilterInput]
+  or: [ModelSubscriptionUserFilterInput]
+}
+
+type Subscription {
+  onCreateUser(filter: ModelSubscriptionUserFilterInput): User @aws_subscribe(mutations: ["createUser"]) @aws_api_key @aws_iam
+  onUpdateUser(filter: ModelSubscriptionUserFilterInput): User @aws_subscribe(mutations: ["updateUser"]) @aws_api_key @aws_iam
+  onDeleteUser(filter: ModelSubscriptionUserFilterInput): User @aws_subscribe(mutations: ["deleteUser"]) @aws_api_key @aws_iam
+  onCreateKorok(filter: ModelSubscriptionKorokFilterInput): Korok @aws_subscribe(mutations: ["createKorok"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+  onUpdateKorok(filter: ModelSubscriptionKorokFilterInput): Korok @aws_subscribe(mutations: ["updateKorok"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+  onDeleteKorok(filter: ModelSubscriptionKorokFilterInput): Korok @aws_subscribe(mutations: ["deleteKorok"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+}
+
+type ModelKorokConnection @aws_api_key @aws_iam @aws_cognito_user_pools {
+  items: [Korok]!
+  nextToken: String
+}
+
+input ModelKorokFilterInput {
+  id: ModelIDInput
+  korok_num: ModelIntInput
+  pos_lat: ModelFloatInput
+  pos_long: ModelFloatInput
+  scan_history: ModelStringInput
+  and: [ModelKorokFilterInput]
+  or: [ModelKorokFilterInput]
+  not: ModelKorokFilterInput
+}
+
+input ModelKorokConditionInput {
+  korok_num: ModelIntInput
+  pos_lat: ModelFloatInput
+  pos_long: ModelFloatInput
+  scan_history: ModelStringInput
+  and: [ModelKorokConditionInput]
+  or: [ModelKorokConditionInput]
+  not: ModelKorokConditionInput
+}
+
+input CreateKorokInput {
+  id: ID
+  korok_num: Int!
+  pos_lat: Float
+  pos_long: Float
+  scan_history: [String]
+}
+
+input UpdateKorokInput {
+  id: ID!
+  korok_num: Int
+  pos_lat: Float
+  pos_long: Float
+  scan_history: [String]
+}
+
+input DeleteKorokInput {
+  id: ID!
+}
+
+input ModelSubscriptionKorokFilterInput {
+  id: ModelSubscriptionIDInput
+  korok_num: ModelSubscriptionIntInput
+  pos_lat: ModelSubscriptionFloatInput
+  pos_long: ModelSubscriptionFloatInput
+  scan_history: ModelSubscriptionStringInput
+  and: [ModelSubscriptionKorokFilterInput]
+  or: [ModelSubscriptionKorokFilterInput]
+}

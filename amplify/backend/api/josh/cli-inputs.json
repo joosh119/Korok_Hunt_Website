@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "paths": {
+    "/items": {
+      "name": "/items",
+      "lambdaFunction": "korokhuntsite204059a6",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  }
+}

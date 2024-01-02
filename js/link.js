@@ -1,27 +1,3 @@
-import { Amplify } from 'aws-amplify'
-//import awsconfig from '../aws-exports'
-
-//Amplify.configure(awsconfig)
-
-
-Amplify.configure({
-    API: {
-      GraphQL: {
-        endpoint: 'https://on5zirq675enrfsurlvbfoiijq.appsync-api.us-east-2.amazonaws.com/graphql',
-        region: 'us-east-2',
-        defaultAuthMode: 'apiKey',
-        apiKey: 'da2-mbjzzhi2wvcb3obtyftnz4w76u'
-      }
-    }
-  });
-
-import { API } from 'aws-amplify'
-import { getUser, getKorok, listKoroks, listUsers } from "../src/graphql/queries"
-
-
-
-
-
 //Checks the username with the server, and creates a user account.
 //If invalid, return false and an account won't be created. Otherwise, return true.
 export async function query_username(username){
