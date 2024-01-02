@@ -1,4 +1,4 @@
-import { query_username, set_korok_location} from "./link";
+import { query_korok, query_username, set_korok_location} from "./link";
 
 const korok_count = 4;
 var saved_korok_id;
@@ -126,7 +126,7 @@ async function check_korok(){
         
 
         //check if there is a korok number with this ID
-        if(true){
+        if(query_korok(korok_id)){
             found_korok(korok_id);
         }
         else{

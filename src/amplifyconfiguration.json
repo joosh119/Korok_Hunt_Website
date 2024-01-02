@@ -1,0 +1,40 @@
+{
+  "aws_project_region": "us-east-2",
+  "aws_appsync_graphqlEndpoint": "https://on5zirq675enrfsurlvbfoiijq.appsync-api.us-east-2.amazonaws.com/graphql",
+  "aws_appsync_region": "us-east-2",
+  "aws_appsync_authenticationType": "API_KEY",
+  "aws_appsync_apiKey": "da2-mbjzzhi2wvcb3obtyftnz4w76u",
+  "aws_cloud_logic_custom": [
+    {
+      "name": "josh",
+      "endpoint": "https://ahl9r98cm7.execute-api.us-east-2.amazonaws.com/staging",
+      "region": "us-east-2"
+    }
+  ],
+  "aws_cognito_identity_pool_id": "us-east-2:a94ed35f-3a08-4296-8e10-1120880edb97",
+  "aws_cognito_region": "us-east-2",
+  "aws_user_pools_id": "us-east-2_XTaCrUzEj",
+  "aws_user_pools_web_client_id": "54c8k3tbruodrq0ejtdt40q12c",
+  "oauth": {},
+  "aws_cognito_username_attributes": [],
+  "aws_cognito_social_providers": [],
+  "aws_cognito_signup_attributes": [],
+  "aws_cognito_mfa_configuration": "OFF",
+  "aws_cognito_mfa_types": [
+    "SMS"
+  ],
+  "aws_cognito_password_protection_settings": {
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [
+      "REQUIRES_LOWERCASE",
+      "REQUIRES_NUMBERS",
+      "REQUIRES_SYMBOLS",
+      "REQUIRES_UPPERCASE"
+    ]
+  },
+  "aws_cognito_verification_mechanisms": [
+    "EMAIL"
+  ],
+  "aws_user_files_s3_bucket": "korok-hunt-site-storaged-072f560233700-staging",
+  "aws_user_files_s3_bucket_region": "us-east-2"
+}
