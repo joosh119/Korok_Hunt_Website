@@ -11,8 +11,8 @@
 //
 //const client = generateClient();
 
-import { generateClient } from "aws-amplify/api";
-//import { generateClient } from "./node_modules/aws-amplify/dist/esm/api/index";
+//import { generateClient } from "aws-amplify/api";
+import { generateClient } from "./node_modules/aws-amplify/dist/esm/api/index";
 import { createUser } from './src/graphql/mutations';
 import { getKorok } from './src/graphql/queries';
 
