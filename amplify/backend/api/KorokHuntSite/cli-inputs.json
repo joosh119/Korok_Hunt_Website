@@ -5,8 +5,9 @@
     "serviceName": "AppSync",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "keyDescription": "api key description",
-      "expirationTime": 30
+      "expirationTime": 30,
+      "apiKeyExpirationDate": "2024-02-03T02:27:08.183Z",
+      "keyDescription": "api key description"
     },
     "additionalAuthTypes": [
       {
@@ -19,7 +20,7 @@
     ],
     "conflictResolution": {
       "defaultResolutionStrategy": {
-        "type": "NONE"
+        "type": "AUTOMERGE"
       }
     }
   }

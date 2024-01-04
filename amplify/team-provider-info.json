@@ -24,6 +24,10 @@
       },
       "storage": {
         "s3korokhuntsitestoraged072f560": {}
+      },
+      "api": {
+        "KorokHuntSite": {},
+        "josh": {}
       }
     }
   }
