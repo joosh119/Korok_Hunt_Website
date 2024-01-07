@@ -1,10 +1,25 @@
-import Amplify from './node_modules/aws-amplify';
-import config from './aws-exports.js';
+//import Amplify from './node_modules/aws-amplify';
+//import { Amplify } from './node_modules/aws-amplify/dist/esm/index.js';
+import { Amplify } from './web_modules/aws-amplify.js'
+//import config from './aws-exports.js';
+import config from './src/amplifyconfiguration.json'
 
 Amplify.configure(config);
 
 
-import { generateClient } from "aws-amplify/api";
+//import { generateClient } from 'aws-amplify/api';
+////import { generateClient } from './node_modules/aws-amplify/dist/esm/api/index.js';
+//import { createUser } from './src/graphql/mutations.js'
+//
+//const client = generateClient();
+
+//import { generateClient } from "aws-amplify/api";
+//import { generateClient } from "./node_modules/aws-amplify/dist/esm/api/index.js";
+//import { generateClient } from "./node_modules/@aws-amplify/api/dist/esm/index.d.ts"
+//import { generateClient } from "./node_modules/@aws-amplify/api/dist/esm/API.d.ts"
+
+//import { generateClient } from './node_modules/@aws-amplify/api/dist/esm/API.js'
+import { generateClient } from './web_modules/aws-amplify.js'
 
 import { createUser } from './src/graphql/mutations.js';
 import { getKorok } from './src/graphql/queries.js';
