@@ -1,8 +1,8 @@
 //import Amplify from './node_modules/aws-amplify';
 //import { Amplify } from './node_modules/aws-amplify/dist/esm/index.js';
 import { Amplify } from './web_modules/aws-amplify.js'
-//import config from './aws-exports.js';
-import config from './src/amplifyconfiguration.json'
+import config from './aws-exports.js';
+//import config from './src/amplifyconfiguration.json'
 
 Amplify.configure(config);
 
