@@ -26,8 +26,7 @@ Amplify.configure(config);
 //const client = generateClient()
 
 
-//import DataStore from 'aws-amplify/datastore';
-import DataStore from './node_modules/@aws-amplify/datastore/dist/esm/datastore/datastore.js'
+import DataStore from 'aws-amplify/datastore';
 //import DataStore from './web_modules/aws-amplify.js';
 import { Korok, User } from './src/models/index.js'
 
