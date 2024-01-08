@@ -1,31 +1,35 @@
-//import Amplify from './node_modules/aws-amplify';
+//import { Amplify } from 'aws-amplify'
 //import { Amplify } from './node_modules/aws-amplify/dist/esm/index.js';
 import { Amplify } from './web_modules/aws-amplify.js'
+//const Amplify = require('aws-amplify');
+
 import config from './aws-exports.js';
+//const config = require('./aws-exports.js');
 //import config from './src/amplifyconfiguration.json'
 
 Amplify.configure(config);
 
 
-//import { generateClient } from 'aws-amplify/api';
-////import { generateClient } from './node_modules/aws-amplify/dist/esm/api/index.js';
-//import { createUser } from './src/graphql/mutations.js'
-//
-//const client = generateClient();
 
 //import { generateClient } from "aws-amplify/api";
-//import { generateClient } from "./node_modules/aws-amplify/dist/esm/api/index.js";
-//import { generateClient } from "./node_modules/@aws-amplify/api/dist/esm/index.d.ts"
-//import { generateClient } from "./node_modules/@aws-amplify/api/dist/esm/API.d.ts"
-
 //import { generateClient } from './node_modules/@aws-amplify/api/dist/esm/API.js'
-import { generateClient } from './web_modules/aws-amplify.js'
-
-import { createUser } from './src/graphql/mutations.js';
-import { getKorok } from './src/graphql/queries.js';
+//import { generateClient } from './web_modules/aws-amplify.js'
+//const generateClient = require('aws-amplify/api');
 
 
-const client = generateClient()
+//import { createUser } from './src/graphql/mutations.js';
+//import { getKorok } from './src/graphql/queries.js';
+//const createUser = require('./src/graphql/mutations.js');
+//const getKorok = require('./src/graphql/queries.js');
+
+
+//const client = generateClient()
+
+
+//import DataStore from 'aws-amplify/datastore';
+import DataStore from './node_modules/@aws-amplify/datastore/dist/esm/datastore/datastore.js'
+//import DataStore from './web_modules/aws-amplify.js';
+import { Korok, User } from './src/models/index.js'
 
 
 
@@ -377,31 +381,33 @@ function fadeOut( elem, ms )
 //BACKEND MANAGEMENT
 //Checks the username with the server, and creates a user account.
 //If invalid, return false and an account won't be created. Otherwise, return true.
-export async function query_username(username){
+async function query_username(username){
     console.log("Checking username with server: " + username);
 
-    const newUser = await client.graphql({
-        query: createUser,
-        variables: {
-            input: {
-            "email": username,
-            "collected_koroks":  []
-        }
-        }
-    });
-
+    //const newUser = await client.graphql({
+    //    query: createUser,
+    //    variables: {
+    //        input: {
+    //        "email": username,
+    //        "collected_koroks":  []
+    //    }
+    //    }
+    //});
+    const oneUser = await DataStore.query(User, (u) => u.eq(username) );
+    console.log(oneUser);
 
     return true;
 }
 
 //Check if korok exists. Returns korok number
-export async function query_korok(korok_id){
+async function query_korok(korok_id){
     console.log("Finding Korok");
 
-    const oneKorok = await client.graphql({
-        query: getKorok,
-        variables: { id: korok_id }
-    });
+    //const oneKorok = await client.graphql({
+    //    query: getKorok,
+    //    variables: { id: korok_id }
+    //});
+    const oneKorok = await DataStore.query(Korok);
     console.log(oneKorok);
 
     console.log("Found korok: " + oneKorok);
@@ -410,25 +416,25 @@ export async function query_korok(korok_id){
 
 
 //Increment score of player returns new korok count as well as the user's ranking
-export async function increment_score(username, korok_id){
+async function increment_score(username, korok_id){
 
 }
 
 //Returns player korok count and ranking
-export async function get_player_stats(username){
+async function get_player_stats(username){
 
 }
 
 
 
 //all in one
-export async function find_korok(korok_id, username){
+async function find_korok(korok_id, username){
 
 }
 
 
 //Sets the koroks position
-export async function set_korok_location(position, admin_password){
+async function set_korok_location(position, admin_password){
     console.log("Setting korok location at: " + position + " with admin password: " + admin_password);
 
     var lat = position.coords.latitude;
