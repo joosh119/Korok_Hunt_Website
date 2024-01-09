@@ -387,12 +387,12 @@ async function query_username(username){
 
     console.log("User found:");
     console.log(checkUser);
-    console.log(checkUser != null);
+    console.log(checkUser[0] != null);
 
 
     //check if user is null
     //if so, create new user
-    if( checkUser != null ){
+    if( checkUser[0] != null ){
         const newUser = await client.graphql({
             query: createUser,
             variables: {
@@ -404,7 +404,7 @@ async function query_username(username){
         });
         console.log("New User:");
         console.log(newUser);
-        console.log(newUser != null);
+        console.log(newUser[0] != null);
     }
 
     return true;
@@ -418,14 +418,15 @@ async function query_korok(korok_id){
         query: getKorok,
         variables: { id: korok_id }
     });
-    console.log(oneKorok);
 
     console.log("Found korok: ");
     console.log(oneKorok);
-    console.log(oneKorok != null);
+    console.log(oneKorok[0] != null);
 
+    var data = oneKorok[0][0][2];
+    console.log(data);
 
-    return oneKorok != null;
+    return oneKorok[0] != null;
 }
 
 
