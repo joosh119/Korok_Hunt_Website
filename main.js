@@ -18,7 +18,7 @@ import { generateClient } from './web_modules/@aws-amplify/api.js'
 
 
 import { createUser } from './src/graphql/mutations.js';
-import { getKorok } from './src/graphql/queries.js';
+import { getKorok, getUser } from './src/graphql/queries.js';
 //const createUser = require('./src/graphql/mutations.js');
 //const getKorok = require('./src/graphql/queries.js');
 
@@ -106,12 +106,12 @@ async function request_username(){
 
     var button_pressed = false;
     var username;
-    u_popup.getElementsByTagName("button")[0].onclick = function() {
+    u_popup.getElementsByTagName("button")[0].onclick = async function() {
         //check if a valid username was inputted
         username =  textarea.value;
 
         //if username was invalid
-        if(username != ""  &&  username.includes('@')  &&  query_username(username)){
+        if(username != ""  &&  username.includes('@')  &&  await query_username(username)){
             button_pressed = true;
         }
         else{
@@ -150,7 +150,7 @@ async function check_korok(){
         saved_korok_id = korok_id;
         
         //check if there is a korok number with this ID
-        if(query_korok(korok_id)){
+        if(await query_korok(korok_id)){
             found_korok(korok_id);
         }
         else{
@@ -376,17 +376,36 @@ function fadeOut( elem, ms )
 //If invalid, return false and an account won't be created. Otherwise, return true.
 async function query_username(username){
     console.log("Checking username with server: " + username);
-
-    const newUser = await client.graphql({
-        query: createUser,
+    const checkUser = client.graphql({
+        query: getUser,
         variables: {
             input: {
             "email": username,
-            "collected_koroks":  []
-        }
+            }
         }
     });
-    console.log(oneUser);
+
+    console.log("User found:");
+    console.log(checkUser);
+    console.log(checkUser != null);
+
+
+    //check if user is null
+    //if so, create new user
+    if( checkUser != null ){
+        const newUser = await client.graphql({
+            query: createUser,
+            variables: {
+                input: {
+                "email": username,
+                "collected_koroks":  []
+            }
+            }
+        });
+        console.log("New User:");
+        console.log(newUser);
+        console.log(newUser != null);
+    }
 
     return true;
 }
@@ -401,8 +420,12 @@ async function query_korok(korok_id){
     });
     console.log(oneKorok);
 
-    console.log("Found korok: " + oneKorok);
-    return oneKorok;
+    console.log("Found korok: ");
+    console.log(oneKorok);
+    console.log(oneKorok != null);
+
+
+    return oneKorok != null;
 }
 
 
