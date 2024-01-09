@@ -36,7 +36,7 @@
       "providerPlugin": "awscloudformation",
       "service": "AppSync"
     },
-    "josh": {
+    "RestAPI": {
       "dependsOn": [
         {
           "attributes": [
@@ -44,7 +44,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "korokhuntsite204059a6"
+          "resourceName": "test"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -85,6 +85,11 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "test": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -101,6 +106,22 @@
         {
           "category": "function",
           "resourceName": "korokhuntsite204059a6"
+        }
+      ]
+    },
+    "AMPLIFY_function_test_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "test"
+        }
+      ]
+    },
+    "AMPLIFY_function_test_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "test"
         }
       ]
     }

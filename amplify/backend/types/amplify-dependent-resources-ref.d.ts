@@ -5,7 +5,7 @@ export type AmplifyDependentResourcesAttributes = {
       "GraphQLAPIIdOutput": "string",
       "GraphQLAPIKeyOutput": "string"
     },
-    "josh": {
+    "RestAPI": {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
@@ -24,6 +24,13 @@ export type AmplifyDependentResourcesAttributes = {
   },
   "function": {
     "korokhuntsite204059a6": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "test": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",

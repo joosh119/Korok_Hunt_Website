@@ -20,6 +20,10 @@
         "korokhuntsite204059a6": {
           "deploymentBucketName": "amplify-amplifydae6587271844-staging-233700-deployment",
           "s3Key": "amplify-builds/korokhuntsite204059a6-766c6d4672684c326f7a-build.zip"
+        },
+        "test": {
+          "deploymentBucketName": "amplify-amplifydae6587271844-staging-233700-deployment",
+          "s3Key": "amplify-builds/test-4b306f39374167764249-build.zip"
         }
       },
       "storage": {
@@ -27,7 +31,7 @@
       },
       "api": {
         "KorokHuntSite": {},
-        "josh": {}
+        "RestAPI": {}
       }
     }
   }

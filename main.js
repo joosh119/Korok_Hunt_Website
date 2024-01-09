@@ -13,23 +13,17 @@ Amplify.configure(config);
 
 //import { generateClient } from "aws-amplify/api";
 //import { generateClient } from './node_modules/@aws-amplify/api/dist/esm/API.js'
-//import { generateClient } from './web_modules/aws-amplify.js'
+import { generateClient } from './web_modules/@aws-amplify/api.js'
 //const generateClient = require('aws-amplify/api');
 
 
-//import { createUser } from './src/graphql/mutations.js';
-//import { getKorok } from './src/graphql/queries.js';
+import { createUser } from './src/graphql/mutations.js';
+import { getKorok } from './src/graphql/queries.js';
 //const createUser = require('./src/graphql/mutations.js');
 //const getKorok = require('./src/graphql/queries.js');
 
 
-//const client = generateClient()
-
-
-import DataStore from 'aws-amplify/datastore';
-//import DataStore from './web_modules/aws-amplify.js';
-import { Korok, User } from './src/models/index.js'
-
+const client = generateClient()
 
 
 
@@ -383,16 +377,15 @@ function fadeOut( elem, ms )
 async function query_username(username){
     console.log("Checking username with server: " + username);
 
-    //const newUser = await client.graphql({
-    //    query: createUser,
-    //    variables: {
-    //        input: {
-    //        "email": username,
-    //        "collected_koroks":  []
-    //    }
-    //    }
-    //});
-    const oneUser = await DataStore.query(User, (u) => u.eq(username) );
+    const newUser = await client.graphql({
+        query: createUser,
+        variables: {
+            input: {
+            "email": username,
+            "collected_koroks":  []
+        }
+        }
+    });
     console.log(oneUser);
 
     return true;
@@ -402,11 +395,10 @@ async function query_username(username){
 async function query_korok(korok_id){
     console.log("Finding Korok");
 
-    //const oneKorok = await client.graphql({
-    //    query: getKorok,
-    //    variables: { id: korok_id }
-    //});
-    const oneKorok = await DataStore.query(Korok);
+    const oneKorok = await client.graphql({
+        query: getKorok,
+        variables: { id: korok_id }
+    });
     console.log(oneKorok);
 
     console.log("Found korok: " + oneKorok);
