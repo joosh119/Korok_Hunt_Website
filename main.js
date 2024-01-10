@@ -1,3 +1,4 @@
+/*
 //import { Amplify } from 'aws-amplify'
 //import { Amplify } from './node_modules/aws-amplify/dist/esm/index.js';
 import { Amplify } from './web_modules/aws-amplify.js'
@@ -25,6 +26,9 @@ import { getKorok, getUser } from './src/graphql/queries.js';
 
 const client = generateClient()
 
+*/
+
+
 
 
 const korok_count = 4;
@@ -45,6 +49,7 @@ document.addEventListener('DOMContentLoaded', _ => {
 
 //Start
 window.onload = function initialize(){    
+    callAwsLambdaFunction();
     check_korok();
 }
 
@@ -423,9 +428,9 @@ async function query_korok(korok_id){
     console.log(oneKorok);
     console.log(oneKorok.data.getKorok != null);
 
-    var data = oneKorok.data;
-    console.log(oneKorok["id"]);
-    console.log(data["korok_num"]);
+    var data = oneKorok.data.getKorok;
+    console.log(data.id);
+    console.log(data.korok_num);
 
     return oneKorok.data.getKorok != null;
 }
@@ -455,5 +460,20 @@ async function set_korok_location(position, admin_password){
 
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
+
+}
+
+
+
+
+function callAwsLambdaFunction() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+        }
+    };
+    xhttp.open("GET", "https://y4mpgu4vo0.execute-api.us-east-2.amazonaws.com/default/SetKorokLocation", true);
+    xhttp.send();
 
 }
