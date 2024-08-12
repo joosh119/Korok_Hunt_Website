@@ -10,16 +10,16 @@ export async function query_username(username){
 //Check if korok exists. Returns korok number
 export async function query_korok(korok_id){
     //const korok = ;
-    const allKoroks = await API.graphql<GraphQLQuery<ListKoroksQuery>>({
-        query: queries.listKoroks
-    });
-    console.log(allKoroks);
-
-    const oneKorok = await API.graphql<GraphQLQuery<GetKorokQuery>>({
-        query: queries.getKorok,
-        variables: { id: korok_id }
-    });
-    console.log(oneKorok);
+    //const allKoroks = await API.graphql<GraphQLQuery<ListKoroksQuery>>({
+    //    query: queries.listKoroks
+    //});
+    //console.log(allKoroks);
+    //
+    //const oneKorok = await API.graphql<GraphQLQuery<GetKorokQuery>>({
+    //    query: queries.getKorok,
+    //    variables: { id: korok_id }
+    //});
+    //console.log(oneKorok);
 
     
     return true;

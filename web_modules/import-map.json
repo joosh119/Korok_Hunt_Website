@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "aws-amplify": "./aws-amplify.js",
-    "@aws-amplify/api": "./@aws-amplify/api.js"
-  }
-}

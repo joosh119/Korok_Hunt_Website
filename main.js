@@ -143,6 +143,9 @@ async function request_username(){
 //SERVER----------------------------
 //check if korok with the id exists
 async function check_korok(){
+    unknown_korok(korok_id);
+    return;
+    
     const url = new URL(window.location);
     console.log(url.toString());
     var url_params = new URLSearchParams(url.search);
@@ -235,7 +238,7 @@ function korok_found_popup(korok_num, korok_count, new_korok, ranking){
     kf_popup.getElementsByTagName("button")[0].onclick = function() { close_popup(kf_popup) };
     
     //Load correct Korok image
-    document.getElementById('korok_img').src = "images/korok_" + korok_num + ".png";
+    document.getElementById('korok_img').src = "/img/koroks/k_" + korok_num + ".png";
 
     //Display if this korok has already been found
     if(!new_korok){

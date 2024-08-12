@@ -1,0 +1,171 @@
+iframe {
+    height: 96vh;
+    width: 70vw;
+    box-sizing: border-box;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.popup_align {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    bottom: 0;
+    top: 0;
+    margin-bottom: auto;
+    margin-top: auto;
+
+
+    z-index: 2;
+    
+    background-size: contain;
+    container-type: size;
+    
+    text-align: center;
+}
+
+.s_popup {
+    aspect-ratio: 680 / 410;
+    max-height: 60%;
+    background-repeat: no-repeat;
+    
+    background-image: url("/img/s_popup_bg.svg");
+}
+
+.l_popup {
+    aspect-ratio: 530 / 750;
+    max-height: 105%;
+    background-repeat: no-repeat;
+
+    background-image: url("/img/l_popup_bg.svg");
+}
+
+
+.s_popup_div {
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 0;
+    bottom: 0;
+
+    width: 75%;
+    height: 100%;
+    container-type: inline-size;
+    
+    overflow: hidden;
+}
+
+.l_popup_div {
+    width: 75%;
+    height: 100%;
+    container-type: inline-size;
+    
+    overflow: hidden;
+}
+
+
+.button {
+    background: url("/img/button_bg.svg") no-repeat;
+    border: none;
+    outline: none;
+    outline-width: 0;
+    width: 80cqi;
+    aspect-ratio: 300 / 75;
+    background-size: contain;
+}
+
+.bottom_align {
+    position: absolute;
+    bottom: 0px;
+}
+
+
+@font-face {
+    font-family: 'Hylia Serif';
+    src: url('/fonts/HyliaSerifBeta-Regular.ttf');
+}
+
+
+.popup_text {
+    font-size: 1cqi;
+}
+
+.title_text {
+    font-family: Hylia Serif;
+    font-size: 7.5em;
+    color: goldenrod;
+}
+
+.p_text {
+    font-family: Hylia Serif;
+    font-size: 4em;
+    color: whitesmoke;
+    text-align: left;
+}
+
+.s_text {
+    font-family: Hylia Serif;
+    font-size: 3.2em;
+    color: whitesmoke;
+}
+
+.f_text {
+    font-family: Hylia Serif;
+    font-size: 5em;
+    color: whitesmoke;
+}
+
+.area_text {
+    font-family: Hylia Serif;
+    font-size: 4.5em;
+    color: black;
+}
+
+.button_text {
+    font-family: Hylia Serif; 
+    color: goldenrod; 
+    font-size: 7.5em; 
+    margin-top: auto; 
+    margin-bottom: auto;
+}
+
+
+
+.b_paragraph {
+    font-family: Hylia Serif;
+    font-size: 24px;
+    color: rgb(122, 81, 0);
+
+    text-align: left;
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 92%
+}
+
+.t_paragraph {
+    font-family: Hylia Serif;
+    font-size: 32px;
+    color: rgb(82, 58, 11);
+
+    text-align: center;
+    width: 100%;
+}
+
+.bottom_paragraph {
+    font-family: Hylia Serif;
+    font-size: 18px;
+    color: rgb(82, 58, 11);
+
+    text-align: center;
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
