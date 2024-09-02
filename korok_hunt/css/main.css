@@ -36,7 +36,7 @@ iframe {
     max-height: 60%;
     background-repeat: no-repeat;
     
-    background-image: url("/img/s_popup_bg.svg");
+    background-image: url("/korok_hunt/img/s_popup_bg.svg");
 }
 
 .l_popup {
@@ -44,7 +44,7 @@ iframe {
     max-height: 105%;
     background-repeat: no-repeat;
 
-    background-image: url("/img/l_popup_bg.svg");
+    background-image: url("/korok_hunt/img/l_popup_bg.svg");
 }
 
 
@@ -71,7 +71,7 @@ iframe {
 
 
 .button {
-    background: url("/img/button_bg.svg") no-repeat;
+    background: url("/korok_hunt/img/button_bg.svg") no-repeat;
     border: none;
     outline: none;
     outline-width: 0;
@@ -88,7 +88,7 @@ iframe {
 
 @font-face {
     font-family: 'Hylia Serif';
-    src: url('/fonts/HyliaSerifBeta-Regular.ttf');
+    src: url('/korok_hunt/fonts/HyliaSerifBeta-Regular.ttf');
 }
 
 
