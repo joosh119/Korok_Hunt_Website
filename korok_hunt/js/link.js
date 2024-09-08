@@ -1,10 +1,10 @@
 //Checks the username with the server, and creates a user account.
 //If invalid, return false and an account won't be created. Otherwise, return true.
-export async function createUser(username){
+export async function createUser(email, username){
     console.log("Checking username with server: " + username);
 
     // Send username to server
-    const query_string = "https://8n8fsfczsl.execute-api.us-east-2.amazonaws.com/create_user" + "?username=" + username;
+    const query_string = "https://8n8fsfczsl.execute-api.us-east-2.amazonaws.com/create_user" + "?email=" + email + "&username=" + username;
     const result = await fetch(query_string);
     const status = result.status;
     
@@ -15,11 +15,11 @@ export async function createUser(username){
 
 
 //Increments score of player and returns the new korok count, as well as the user's ranking and the korok number
-export async function findKorok(username, korok_id){
+export async function findKorok(email, korok_id){
     console.log("Finding Korok: " + korok_id);
 
     // Send username and korok id to server
-    const query_string = "https://8n8fsfczsl.execute-api.us-east-2.amazonaws.com/find_korok" + "?username=" + username + "&k_id=" + korok_id;
+    const query_string = "https://8n8fsfczsl.execute-api.us-east-2.amazonaws.com/find_korok" + "?email=" + email + "&k_id=" + korok_id;
     const result = await fetch(query_string);
     const status = result.status;
     const data = await result.json();
@@ -48,8 +48,6 @@ export async function findKorok(username, korok_id){
 //Sets the koroks position
 //https://8n8fsfczsl.execute-api.us-east-2.amazonaws.com/set_korok?k_id=10&k_num=5&description=Somewhere%20sometime&lat=99.99999&long=98.88888&password=KorokHunt662058949
 export async function setKorok(korok_id, korok_number, description, position, admin_password){
-    console.log("Setting korok location at: " + position + " with admin password: " + admin_password);
-
     const lat = position.coords.latitude;
     const long = position.coords.longitude;
 
@@ -60,11 +58,32 @@ export async function setKorok(korok_id, korok_number, description, position, ad
         + "&description=" + description
         + "&lat=" + lat
         + "&long=" + long
-        + "&password=" + admin;
+        + "&password=" + admin_password;
     const result = await fetch(query_string);
     const status = result.status;
 
     // If the status is 200, the username was added to the database
     console.log("Korok added: " + (status == 200));
     return status == 200;
+}
+
+
+// Returns the usernames and korok counts associated with the usernames. Sorting is done locally
+export async function getUserScores(){
+    // Send request for user scores
+    const query_string = "https://8n8fsfczsl.execute-api.us-east-2.amazonaws.com/get_user_scores";
+    const result = await fetch(query_string);
+    const status = result.status;
+    const data = await result.json();
+
+    console.log(data);
+
+    if(status == 200){
+        return data;
+    }
+    else{
+        console.log("Error Getting User Scores");
+
+        return null;
+    }
 }
