@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="130.923mm"
-   height="131.506mm"
-   viewBox="0 0 130.923 131.506"
+   width="129.659mm"
+   height="132.117mm"
+   viewBox="0 0 129.65899 132.11701"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
@@ -25,8 +25,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.0129245"
-     inkscape:cx="252.23993"
-     inkscape:cy="268.03577"
+     inkscape:cx="135.74556"
+     inkscape:cy="199.91618"
      inkscape:window-width="1920"
      inkscape:window-height="991"
      inkscape:window-x="-9"
@@ -40,7 +40,7 @@
        inkscape:label="Drop Shadow"
        id="filter1462"
        x="-0.1546153"
-       y="-0.15753155"
+       y="-0.15753154"
        width="1.3092306"
        height="1.3150631">
       <feFlood
@@ -76,7 +76,7 @@
        inkscape:label="Drop Shadow"
        id="filter1462-6"
        x="-0.1546153"
-       y="-0.15753155"
+       y="-0.15753154"
        width="1.3092306"
        height="1.3150631">
       <feFlood
@@ -111,7 +111,7 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter3073"
-       x="-0.049116534"
+       x="-0.049116533"
        y="-0.17573464"
        width="1.0982331"
        height="1.3514693">
@@ -184,7 +184,7 @@
        inkscape:label="Drop Shadow"
        id="filter4549"
        x="-0.11390662"
-       y="-0.24297192"
+       y="-0.24297193"
        width="1.2278132"
        height="1.4859438">
       <feFlood
@@ -216,11 +216,11 @@
          id="feComposite4547" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter16458"
-       x="-0.09355521"
-       y="-0.3347323"
+       x="-0.093555212"
+       y="-0.33473229"
        width="1.1871104"
        height="1.6694646">
       <feFlood
@@ -252,7 +252,7 @@
          id="feComposite16456" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter16931"
        x="-0.077962672"
@@ -288,7 +288,7 @@
          id="feComposite16929" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter16967"
        x="-0.11794038"
@@ -323,6 +323,114 @@
          result="composite2"
          id="feComposite16965" />
     </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter16967-7"
+       x="-0.11794038"
+       y="-0.36255211"
+       width="1.2358809"
+       height="1.7251042">
+      <feFlood
+         flood-opacity="1"
+         flood-color="rgb(27,126,0)"
+         result="flood"
+         id="feFlood16957-5" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite16959-8" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="3.1746"
+         result="blur"
+         id="feGaussianBlur16961-1" />
+      <feOffset
+         dx="0"
+         dy="0"
+         result="offset"
+         id="feOffset16963-2" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite16965-7" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter46264"
+       x="-0.17655525"
+       y="-0.37660647"
+       width="1.3531105"
+       height="1.7532129">
+      <feFlood
+         flood-opacity="1"
+         flood-color="rgb(26,125,0)"
+         result="flood"
+         id="feFlood46254" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite46256" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="3.1"
+         result="blur"
+         id="feGaussianBlur46258" />
+      <feOffset
+         dx="0"
+         dy="0"
+         result="offset"
+         id="feOffset46260" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite46262" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter46264-5"
+       x="-0.17655525"
+       y="-0.37660646"
+       width="1.3531106"
+       height="1.7532129">
+      <feFlood
+         flood-opacity="1"
+         flood-color="rgb(26,125,0)"
+         result="flood"
+         id="feFlood46254-7" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite46256-0" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="3.1"
+         result="blur"
+         id="feGaussianBlur46258-0" />
+      <feOffset
+         dx="0"
+         dy="0"
+         result="offset"
+         id="feOffset46260-4" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite46262-7" />
+    </filter>
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -331,10 +439,10 @@
      style="display:inline">
     <g
        id="g16463"
-       transform="matrix(1.2965928,0,0,1.2965928,-21.874487,-18.813616)">
+       transform="matrix(1.2965928,0,0,1.2965928,-20.047309,-17.967258)">
       <path
          sodipodi:type="star"
-         style="fill:#7ff42c;fill-opacity:1;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
+         style="fill:#66d914;fill-opacity:1;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
          id="path1002-0"
          inkscape:flatsided="false"
          sodipodi:sides="11"
@@ -352,7 +460,7 @@
          transform="matrix(0.60537858,0.22033978,-0.22449568,0.61679682,65.556088,63.791846)" />
       <path
          sodipodi:type="star"
-         style="fill:#49b000;fill-opacity:1;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
+         style="fill:#48ae01;fill-opacity:1;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
          id="path1002"
          inkscape:flatsided="false"
          sodipodi:sides="11"
@@ -370,7 +478,7 @@
          transform="matrix(0.64423043,0,0,0.65638147,65.587758,63.896971)" />
       <path
          sodipodi:type="star"
-         style="fill:#449809;fill-opacity:1;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
+         style="fill:#3b8f00;fill-opacity:1;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
          id="path1016"
          inkscape:flatsided="false"
          sodipodi:sides="11"
@@ -388,45 +496,75 @@
          transform="matrix(1.1392277,0,0,1.1486462,51.253136,56.282795)" />
     </g>
     <rect
-       style="fill:#434343;fill-opacity:1;stroke-width:0.445162;stroke-linecap:round;stroke-linejoin:round"
+       style="display:inline;fill:#2d2d2d;fill-opacity:1;stroke-width:0.445162;stroke-linecap:round;stroke-linejoin:round"
+       id="rect2343-6"
+       width="42.139782"
+       height="19.755369"
+       x="48.070179"
+       y="27.581358"
+       ry="7.2386084" />
+    <rect
+       style="fill:#434343;fill-opacity:1;stroke-width:0.445162;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter46264)"
        id="rect2343"
        width="42.139782"
        height="19.755369"
-       x="44.080978"
-       y="24.937975"
+       x="45.908157"
+       y="25.784332"
        ry="7.2386084" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:141.111px;font-family:'Bodoni MT';-inkscape-font-specification:'Bodoni MT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.499998;stroke-linecap:round;stroke-linejoin:round"
-       x="65.127129"
-       y="41.415138"
+       x="66.954308"
+       y="42.261497"
        id="text236"><tspan
          sodipodi:role="line"
          id="tspan234"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.4611px;font-family:'Bodoni MT';-inkscape-font-specification:'Bodoni MT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.499999"
-         x="65.127129"
-         y="41.415138">RPI</tspan></text>
+         x="66.954308"
+         y="42.261497">RPI</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.1557px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#9d7632;fill-opacity:1;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round"
+       x="68.869652"
+       y="77.653557"
+       id="text31838"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.514px;font-family:'Hylia Serif Beta';-inkscape-font-specification:'Hylia Serif Beta, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#9d7632;fill-opacity:1;stroke-width:0.500001"
+         x="68.869652"
+         y="77.653557"
+         id="tspan31836">Korok</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.1557px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#d49b3a;fill-opacity:1;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter16931)"
-       x="65.042938"
-       y="74.807365"
+       x="66.870117"
+       y="75.653725"
        id="text1266"><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.514px;font-family:'Hylia Serif Beta';-inkscape-font-specification:'Hylia Serif Beta, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#d49b3a;fill-opacity:1;stroke-width:0.500001"
-         x="65.042938"
-         y="74.807365"
+         x="66.870117"
+         y="75.653725"
          id="tspan1268">Korok</tspan></text>
     <text
        xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.5142px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;display:inline;fill:#650101;fill-opacity:1;stroke-width:0.500002;stroke-linecap:round;stroke-linejoin:round"
+       x="68.214577"
+       y="100.45126"
+       id="text1426-5"><tspan
+         sodipodi:role="line"
+         id="tspan1424-2"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.6945px;font-family:'Hylia Serif Beta';-inkscape-font-specification:'Hylia Serif Beta, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#650101;fill-opacity:1;stroke-width:0.500003"
+         x="68.214577"
+         y="100.45126">Hunt!</tspan></text>
+    <text
+       xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.5141px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#760101;fill-opacity:1;stroke-width:0.500001;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter16967)"
-       x="65.461426"
-       y="98.940056"
+       x="67.288605"
+       y="99.786415"
        id="text1426"><tspan
          sodipodi:role="line"
          id="tspan1424"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.6945px;font-family:'Hylia Serif Beta';-inkscape-font-specification:'Hylia Serif Beta, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#760101;fill-opacity:1;stroke-width:0.500002"
-         x="65.461426"
-         y="98.940056">Hunt!</tspan></text>
+         x="67.288605"
+         y="99.786415">Hunt!</tspan></text>
   </g>
 </svg>

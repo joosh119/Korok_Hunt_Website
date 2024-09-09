@@ -19,7 +19,7 @@ window.onload = async function initialize(){
     await checkKorok();
 
     // Display the users name and korok count in the corner
-    korokCountDisplay();
+    userInfoDisplay();
 }
 
 
@@ -29,12 +29,8 @@ async function getEmail(){
     // check if cookie exists
     let email = getCookie("email");
     if(email == ""){
-        console.log("Cookie does not exist, it is being created");
         //Request username popup underneath
         email = await requestEmail();
-    }
-    else{
-        console.log("Username:" + email);
     }
 
     return email;
@@ -57,7 +53,7 @@ async function requestEmail(){
         email =  textareas[0].value;
         username =  textareas[1].value;
 
-        //if username was invalid
+        // If the username was invalid
         try{
             if(email == "" || username == "")
                 throw new Error("Neither field can be empty")
@@ -100,14 +96,11 @@ async function requestEmail(){
 let scanned_korok_id;
 async function checkKorok(){
     const url = new URL(window.location);
-    console.log(url.toString());
     var url_params = new URLSearchParams(url.search);
     scanned_korok_id = url_params.get("k_id");
 
     history.pushState(null, "", location.href.split("?")[0]);
-    
-    console.log("Korok Id: " + scanned_korok_id);
-    
+        
     //Check if there was a korok id to check
     if(scanned_korok_id != null){
         // Get the email, either from a cookie or querying the user
@@ -175,21 +168,33 @@ function newKorokAttempt(){
 // Called if the location has been successfully collected. 
 // Then, checks the admin password
 async function newKorok(position){
+    if(scanned_korok_id == null){
+        alert("Korok id cannot be null.");
+        return;
+    }
+
     // Get the korok number, description, and password from user
     let korok_num = prompt("Korok number:");
-    if(korok_num == "")
+    if(korok_num == null){
+        alert("Korok number cannot be empty.");
         return;
-
+    }
+        
     let description = prompt("Location description:");
-    if(description == "")
+    if(description == null){
+        alert("Description cannot be empty.");
         return;
+    }
 
     let admin_password = getCookie("admin_password");
     if(admin_password == ""){
         admin_password = prompt("Administrator Password:");
         
-        if(admin_password == "")
+        if(admin_password == null){
+            alert("Password cannot be empty.");
             return;
+        }
+            
     }
 
     // If the korok was successfully set, set the admin password as a cookie
@@ -219,9 +224,12 @@ function korokFoundPopup(korok_num, korok_count, already_found, prev_found_count
 
     //Display if this korok has already been found
     if(already_found){
-        kf_popup.getElementsByTagName("found")[0].textContent = "You've already found this korok";
+        kf_popup.getElementsByTagName("found")[0].style.color = "rgb(164, 14, 14)";
+        kf_popup.getElementsByTagName("found")[0].textContent = "You've already found this korok.";
         kf_popup.getElementsByTagName("b_found")[0].textContent = "Ok";
     }
+    else
+        kf_popup.getElementsByTagName("found")[0].style.color = "rgb(168, 212, 9)";
 
     //Set korok count
     let count_display = korok_count + " Korok";
@@ -271,16 +279,29 @@ function infoPopup(){
     return i_popup;
 }
 
-function korokCountDisplay(){
+function userInfoDisplay(){
     const username = getCookie("username");
 
     if(username != ""){
         let korok_count = getCookie("korok_count");
         if(korok_count == "")
             korok_count = 0;
+        
+        // Get display
+        var user_display = document.getElementById("user_display");
 
+        // Set username and korok count
+        user_display.getElementsByTagName("username")[0].textContent = username;
+        user_display.getElementsByTagName("count")[0].textContent = korok_count;
+        
+        
+        // Fade in display
+        fadeIn(user_display, 100);
 
+        return user_display
     }
+
+    return null;
 }
 
 var popup_set = new Set();
@@ -313,7 +334,6 @@ function closePopup(popup){
 }
 
 
-
 //Fade in element
 function fadeIn( elem, ms )
 {
@@ -322,7 +342,7 @@ function fadeIn( elem, ms )
 
     elem.style.opacity = 0;
     elem.style.filter = "alpha(opacity=0)";
-    elem.style.display = "inline-block";
+    //elem.style.display = "inline-block";
     elem.style.visibility = "visible";
 
     if( ms )
@@ -360,7 +380,7 @@ function fadeOut( elem, ms )
         {
             clearInterval(timer);
             opacity = 0;
-            elem.style.display = "none";
+            //elem.style.display = "none";
             elem.style.visibility = "hidden";
         }
         elem.style.opacity = opacity;
@@ -403,6 +423,4 @@ function setCookie(c_name, data){
     cookie_string = c_name + "=" + data + "; expires=" + expiration_date.toUTCString();
     // Create or update the cookie:
     document.cookie = cookie_string;
-
-    console.log("Cookie: " + document.cookie);
 }
