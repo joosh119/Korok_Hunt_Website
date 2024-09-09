@@ -1,6 +1,6 @@
 /* Resources */
 @font-face {
-    font-family: 'Hylia Serif';
+    font-family: 'Hylia Serif Beta';
     src: url('/korok_hunt/fonts/HyliaSerifBeta-Regular.ttf');
 }
 
@@ -36,7 +36,7 @@
 
     /* Text */
 .b_paragraph {
-    font-family: Hylia Serif;
+    font-family: Hylia Serif Beta;
     color: rgb(122, 81, 0);
     text-shadow: 0 0 5px rgba(115, 58, 17, .35);
 
@@ -49,7 +49,7 @@
 }
 
 .t_paragraph {
-    font-family: Hylia Serif;
+    font-family: Hylia Serif Beta;
     color: rgb(82, 58, 11);
     text-shadow: 0 0 5px rgb(115, 58, 17, .5);
 
@@ -61,7 +61,7 @@
 }
 
 .bottom_paragraph {
-    font-family: Hylia Serif;
+    font-family: Hylia Serif Beta;
     color: rgb(121, 100, 72);
     text-shadow: 0 0 5px rgb(115, 58, 17, .5);
 
@@ -158,7 +158,7 @@
     top: 0;
     right: 0;
 
-    font-family: Hylia Serif;
+    font-family: Hylia Serif Beta;
     font-size: 3.5em;
     color: goldenrod;
     text-wrap: wrap;
@@ -168,6 +168,8 @@
     padding-left: .25em;
     padding-right: .25em;
     padding-bottom: .1em;
+
+    visibility: hidden;
 }
 
 
@@ -218,7 +220,7 @@
 }
 
 .korok_popup_text{
-    font-family: Hylia Serif;
+    font-family: Hylia Serif Beta;
     font-size: min(5vh, 8.33vw);
     color: whitesmoke;
     margin-bottom: auto;
@@ -231,20 +233,20 @@
 }
 
 .info_popup_text{
-    font-family: Hylia Serif;
+    font-family: Hylia Serif Beta;
     /*font-size: min(4.25vh, 6.07vw);  0.7 aspect */ 
     font-size: min(4vh, 6.66vw);
     color: whitesmoke;
 }
 .popup_title_text {
-    font-family: Hylia Serif;
+    font-family: Hylia Serif Beta;
     /*font-size: min(5.5vh, 7.85vw); .7 aspect*/
     font-size: min(4.71vh, 7.85vw);
     color: rgba(41, 29, 0, 0.785);
     padding-bottom: 3vh;
 }
 .popup_title_text > u {
-    font-family: Hylia Serif;
+    font-family: Hylia Serif Beta;
     /*font-size: min(6.4vh, 9.17vw); .7 aspect*/
     font-size: min(5.5vh, 9.17vw);
     color: goldenrod;
@@ -274,13 +276,13 @@
 }
 
 .input_popup_text{
-    font-family: Hylia Serif;
+    font-family: Hylia Serif Beta;
     font-size: min(5vh, 6vw);
     color: rgb(193, 193, 193);
     text-align: center;
 }
 .input_popup_error{
-    font-family: Hylia Serif;
+    font-family: Hylia Serif Beta;
     font-size: min(4vh, 4.8vw);
     color: rgb(107, 0, 0);
     text-align: center;
@@ -288,7 +290,7 @@
     visibility: hidden;
 }
 .input_text_area{
-    font-family: Hylia Serif;
+    font-family: Hylia Serif Beta;
     color: black;
 
     width: min(45vh, 54vw);
@@ -320,7 +322,7 @@
     width: 80%;
     aspect-ratio: 4;
 
-    font-family: Hylia Serif; 
+    font-family: Hylia Serif Beta; 
     color: goldenrod; 
     /*font-size: min(6vh, 8.57vw); .7 aspect*/
     font-size: min(5vh, 8.33vw);
@@ -374,7 +376,7 @@
     background-color: rgb(211, 154, 61);
     border-radius: 2vh;
 
-    font-family: Hylia Serif;
+    font-family: Hylia Serif Beta;
     color: rgb(122, 81, 0);
     text-shadow: 0 0 5px rgba(115, 58, 17, .35);
     font-size: 2vw;
