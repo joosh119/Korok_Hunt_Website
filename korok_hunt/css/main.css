@@ -139,7 +139,7 @@
     box-shadow: 0 0 20px rgb(142, 118, 86);
     
     width: 100%;
-    aspect-ratio: 2;
+    aspect-ratio: 1.65;
     border-radius: 2vw;
     overflow: hidden;
 }
@@ -154,7 +154,7 @@
     border-bottom-left-radius: 3vw;
     box-shadow: 0 0 10vw black;
     
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
 
@@ -197,10 +197,10 @@
     background-color: rgb(151, 107, 62);
     border: 10px solid rgb(74, 74, 74);
     border-radius: 4vmax;
-    box-shadow: 0 0 0px 1000px  rgb(0,0,0, .75);
+    box-shadow: 0 0 0 1500px  rgb(0,0,0, .75);
 
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 90vw;
+    max-height: 90vh;
     aspect-ratio: .6;
     z-index: 3;
 
@@ -212,7 +212,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    overflow-y: hidden;
+    overflow-y: visible;
 }
 .info_popup > img{
     height: 55%;
@@ -235,7 +235,7 @@
 .info_popup_text{
     font-family: Hylia Serif Beta;
     /*font-size: min(4.25vh, 6.07vw);  0.7 aspect */ 
-    font-size: min(4vh, 6.66vw);
+    font-size: min(3.9vh, 6.49vw);
     color: whitesmoke;
 }
 .popup_title_text {
@@ -257,22 +257,22 @@
     background-color: rgb(151, 107, 62);
     border: 1vw solid rgb(74, 74, 74);
     border-radius: 4vmax;
-    box-shadow: 0 0 0px 1000px  rgb(0,0,0, .75);
+    box-shadow: 0 0 0 1500px  rgb(0,0,0, .75);
 
-    max-height: 60%;
-    max-width: 90%;
-    aspect-ratio: 1.25;
+    max-height: 60vh;
+    max-width: 90vw;
+    aspect-ratio: 1.2;
     z-index: 2;
 
     padding-left: 3vw;
     padding-right: 3vw;
-    padding-top: 3vh;
-    padding-bottom: 3vh;
+    padding-top: 2vh;
+    padding-bottom: 1vh;
 
     display: flex;
     flex-direction: column;
     flex: 1;
-    overflow-y: hidden;
+    overflow-y: visible;
 }
 
 .input_popup_text{
@@ -293,7 +293,7 @@
     font-family: Hylia Serif Beta;
     color: black;
 
-    width: min(45vh, 54vw);
+    width: min(42vh, 50.4vw);
     height: min(6vh, 7.2vw);
     font-size: min(6vh, 7.2vw);
     line-height: min(6vh, 7.2vw);
@@ -312,15 +312,19 @@
     color: whitesmoke;
     vertical-align: middle;
 }
+.top_text_padding{
+    padding-top: 4%;
+}
 
 .popup_button_container{
-    margin-top: auto;
+    margin-top: 3%;
+    width: 100%;
 }
 .popup_button_container > .popup_button {
     background-color: rgb(255, 194, 131);
-    border-radius: 2vw;
-    width: 80%;
-    aspect-ratio: 4;
+    border-radius: 3vh;
+    width: 95%;
+    aspect-ratio: 4.5;
 
     font-family: Hylia Serif Beta; 
     color: goldenrod; 
@@ -337,7 +341,10 @@
     opacity: 1;
     visibility: visible;
 }
-
+.debug{
+    border: 1px solid red;
+    visibility: visible;
+}
 
 
 /* Leaderboard styling */
@@ -366,8 +373,8 @@
     flex-direction: row;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
     padding-left: 1vw;
     padding-right: 1vw;
     padding-top: 1vh;
@@ -410,10 +417,13 @@
 /* Alignment */
 html{
     overflow-x: hidden;
+
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
 }
 body{
     margin: 0;
     padding: 0;
+
     overflow-x: hidden;
 
     background-color: burlywood;

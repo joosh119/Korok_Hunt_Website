@@ -220,7 +220,7 @@ function korokFoundPopup(korok_num, korok_count, already_found, prev_found_count
     kf_popup.getElementsByTagName("button")[0].onclick = function() { closePopup(kf_popup) };
     
     //Load correct Korok image
-    document.getElementById('korok_img').src = "/korok_hunt/img/koroks/k_" + korok_num + ".png";
+    document.getElementById('korok_img').src = "/korok_hunt/img/koroks/k_" + korok_num%10 + ".png";
 
     //Display if this korok has already been found
     if(already_found){
