@@ -215,21 +215,22 @@
     overflow-y: visible;
 }
 .info_popup > img{
-    height: 55%;
+    height: 50%;
     width: auto;
 }
 
 .korok_popup_text{
     font-family: Hylia Serif Beta;
-    font-size: min(5vh, 8.33vw);
+    font-size: min(4.7vh, 7.83vw);
     color: whitesmoke;
-    margin-bottom: auto;
+
+    text-align: center;
 }
 .korok_popup_text > .korok_popup_prev{
-    font-size: min(4vh, 6.64vw);
-    line-height: min(4vh, 6.64vw);;
+    font-size: min(3.76vh, 6.24vw);
+    line-height: min(3.76vh, 6.24vw);;
     color: rgb(193, 193, 193);
-    padding-top: 2%;
+    padding-top: 4%;
 }
 
 .info_popup_text{

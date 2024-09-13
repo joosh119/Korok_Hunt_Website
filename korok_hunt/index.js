@@ -123,8 +123,13 @@ async function validKorok(return_data){
     let korok_count;
     if(return_data.already_found){
         korok_count = getCookie("korok_count");
+        // If the cookie doesn't exist for some reason, check if the count was returned
         if(korok_count == "")
+            korok_count = return_data.new_korok_count;
+        if(korok_count == null)
             korok_count = "???";
+        else
+            setCookie("korok_count", korok_count);
     }
     else{
         korok_count = return_data.new_korok_count;
