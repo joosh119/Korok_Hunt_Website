@@ -136,10 +136,8 @@ async function validKorok(return_data){
         setCookie("korok_count", korok_count);
     }
     
-    // Make sure the korok number is lower than the max
+    // Assign Korok Number
     let korok_number = return_data.korok_number;
-    if(korok_number > MAX_KOROK_NUMBER)
-        korok_number = MAX_KOROK_NUMBER;
 
     // Decrement the count of other players found if this player has already found the korok
     let others_scan_count = return_data.prev_scan_count;
@@ -225,7 +223,8 @@ function korokFoundPopup(korok_num, korok_count, already_found, prev_found_count
     kf_popup.getElementsByTagName("button")[0].onclick = function() { closePopup(kf_popup) };
     
     //Load correct Korok image
-    document.getElementById('korok_img').src = "/korok_hunt/img/koroks/k_" + korok_num%10 + ".png";
+    const korok_img_num = Number(korok_num) % 10;
+    document.getElementById('korok_img').src = "/korok_hunt/img/koroks/k_" + korok_img_num + ".png";
 
     //Display if this korok has already been found
     if(already_found){

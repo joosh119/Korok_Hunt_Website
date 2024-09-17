@@ -30,7 +30,6 @@ export async function findKorok(email, korok_id){
 
 
 //Sets the koroks position
-//https://8n8fsfczsl.execute-api.us-east-2.amazonaws.com/set_korok?k_id=10&k_num=5&description=Somewhere%20sometime&lat=99.99999&long=98.88888&password=KorokHunt662058949
 export async function setKorok(korok_id, korok_number, description, position, admin_password){
     const lat = position.coords.latitude;
     const long = position.coords.longitude;
