@@ -207,6 +207,7 @@ async function newKorok(position){
     }
     else{
         alert("Korok not added :(");
+        deleteCookie("admin_password");
     }
 }
 
@@ -427,4 +428,11 @@ function setCookie(c_name, data){
     cookie_string = c_name + "=" + data + "; expires=" + expiration_date.toUTCString();
     // Create or update the cookie:
     document.cookie = cookie_string;
+}
+
+function deleteCookie(c_name){
+    if( getCookie(c_name) != "") {
+        document.cookie = c_name + "=" +
+          ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+      }
 }
