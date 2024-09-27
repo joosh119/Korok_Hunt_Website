@@ -251,6 +251,10 @@ function korokFoundPopup(korok_num, korok_count, already_found, prev_found_count
 
     kf_popup.getElementsByTagName('prev_found')[0].textContent = prev_found_display;
 
+    // Set Korok number
+    kf_popup.getElementsByTagName('korok_number')[0].textContent = "#" + korok_num;
+
+
     return kf_popup;
 }
 

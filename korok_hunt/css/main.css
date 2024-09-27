@@ -440,3 +440,17 @@ body{
     margin-top: auto;
     margin-bottom: auto;
 }
+
+
+.korok_image_div{
+    height: 50%
+}
+.korok_image_div img{
+    height: 100%
+}
+.upper_right_float_text{
+    position: absolute;
+    top: 2%;
+    right: 4%;
+    text-align: right;
+}
